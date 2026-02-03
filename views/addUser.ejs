@@ -66,15 +66,16 @@
     <div class="form-container">
         <h2>Add User</h2>
 
-        <form action='/submit-user' method='post'>
+        <form action="<%= formAction %>" method='post'>
+            <%= formAction %>
             <label for="name">Full Name</label>
-            <input type="text" name="name" placeholder="Enter full name">
+            <input type="text" name="name" value="<%= user.name %>" placeholder="Enter full name">
 
             <label for="email">Email</label>
-            <input type="email" name="email" placeholder="Enter email">
+            <input type="email" name="email" value="<%= user.email %>" placeholder="Enter email">
 
             <label for="email">Age</label>
-            <input type="text" name="age" placeholder="Enter age">
+            <input type="text" name="age" value="<%= user.age %>" placeholder="Enter age">
 
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="Enter password">
@@ -86,7 +87,11 @@
                 <option value="user" name="role">User</option>
             </select>
 
-            <button type="submit">Add User</button>
+            <% if (formAction === '/submit-user') { %>
+                <button type="submit">Add User</button>
+            <% } else { %>
+                <button type="submit">Update User</button>
+            <% } %>
         </form>
     </div>
 

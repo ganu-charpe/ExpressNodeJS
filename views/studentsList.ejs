@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .user-list {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .user-card {
+      background: #fff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .user-card p {
+      margin: 6px 0;
+      font-size: 14px;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .delete-btn {
+      cursor: pointer;
+      font-size: 18px;
+      color: #e74c3c;
+    }
+
+    .delete-btn:hover {
+      color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>User List</h2>
+
+  <div class="user-list">
+     <% for (let i=0;i<users.length; i++) { %>
+        <div class="user-card">
+            <p><span class="label">Name:</span> <%= users[i].name %></p>
+            <p><span class="label">Age:</span> <%= users[i].age %></p>
+            <p><span class="label">Email:</span> <%= users[i].email %></p>
+            <div class="actions">
+                <a class="edit-icon" href="/ui/update/<%= users[i]._id %>">✏️</a>
+                <a class="delete-btn" href='/ui/delete/<%= users[i]._id %>'>🗑️</a>
+            </div>
+        </div>
+    <% } %>
+   
+  </div>
+
+</body>
+</html>
